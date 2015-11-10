@@ -4,7 +4,9 @@
     return console.error('jQuery required.');
   }
 
-  var api = function (url) {
+  $.clbr = $.clbr || {};
+
+  $.clbr.authApi = function (url) {
     return {
       // Sign up by email and password
       signup: function (email, password, fn) {
@@ -43,7 +45,5 @@
       }
     };
   };
-
-  return api;
 
 })(window.jQuery);
