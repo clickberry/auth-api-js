@@ -1,12 +1,12 @@
-(function($) {
+(function(window, $) {
   
   if (!$) {
     return console.error('jQuery required.');
   }
 
-  $.clbr = $.clbr || {};
+  var clbr = window.clbr = window.clbr || {};
 
-  $.clbr.authApi = function (url) {
+  clbr.authApi = function (url) {
     return {
       // Sign up by email and password
       signup: function (email, password, fn) {
@@ -46,4 +46,4 @@
     };
   };
 
-})(window.jQuery);
+})(window, window.jQuery);
