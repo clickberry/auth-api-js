@@ -24,6 +24,22 @@
           });
       },
 
+      // Sign in by email and password
+      signin: function (email, password, fn) {
+        var data = {
+          email: email,
+          password: password
+        };
+
+        $.post(url + '/signin', data)
+          .done(function(result) {
+            fn(null, result);
+          })
+          .fail(function(jqXHR, textStatus, err) {
+            fn(err);
+          });
+      },
+
       // Sets redirect url after social registrations
       setRedirect: function (redirect_url) {
         var data = {
