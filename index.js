@@ -46,10 +46,7 @@
           callbackUri: redirect_url
         };
 
-        $.ajax({
-            url: url + '/social',
-            type: 'POST'
-          })
+        $.post(url + '/social', data)
           .done(function() {
             fn();
           })
