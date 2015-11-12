@@ -6,7 +6,7 @@
 
   var clbr = window.clbr = window.clbr || {};
 
-  clbr.profilesApi = function (url) {
+  clbr.authApi = function (url) {
     return {
       // Sign up by email and password
       signup: function (email, password, fn) {
