@@ -41,7 +41,7 @@
       },
 
       // Sets redirect url after social registrations
-      setRedirect: function (redirect_url) {
+      setRedirect: function (redirect_url, fn) {
         var data = {
           callbackUri: redirect_url
         };
@@ -50,8 +50,8 @@
             url: url + '/social',
             type: 'POST'
           })
-          .done(function(result) {
-            fn(null, result);
+          .done(function() {
+            fn();
           })
           .fail(function(jqXHR, textStatus, err) {
             fn(err);
@@ -124,7 +124,7 @@
       },
 
       // Merges two accaunts
-      merge: function (access_token1, access_token2) {
+      merge: function (access_token1, access_token2, fn) {
         var data = {
           token1: access_token1,
           token2: access_token2
@@ -143,7 +143,7 @@
       },
 
       // Unmerges social account
-      unmerge: function (access_token, provider, id) {
+      unmerge: function (access_token, provider, id, fn) {
         var data = {
           provider: provider,
           id: id
@@ -163,7 +163,7 @@
       },
 
       // Gets user info
-      get: function (access_token) {
+      get: function (access_token, fn) {
         $.ajax({
             url: url + '/account',
             type: 'GET',
@@ -178,7 +178,7 @@
       },
 
       // Deletes user account
-      del: function (access_token) {
+      del: function (access_token, fn) {
         $.ajax({
             url: url + '/account',
             type: 'DELETE',
