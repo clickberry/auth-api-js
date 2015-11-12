@@ -53,7 +53,7 @@
       },
 
       // Registration/login via Google
-      twitter: function () {
+      google: function () {
         window.location.href = url + '/google';
       },
 
