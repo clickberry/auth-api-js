@@ -216,7 +216,7 @@
         $.ajax({
           url: url + '/exchange',
           type: 'GET',
-          headers: {'Authorization': 'JWT ' + refreshToken}
+          headers: {'Authorization': 'JWT ' + exchangeToken}
         })
             .done(function(result) {
               fn(null, result);
