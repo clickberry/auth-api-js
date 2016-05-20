@@ -194,6 +194,36 @@
           .fail(function(jqXHR, textStatus, err) {
             fn(err);
           });
+      },
+
+      // Get exchange token
+      exchange: function (refreshToken, fn) {
+        $.ajax({
+          url: url + '/exchange',
+          type: 'POST',
+          headers: {'Authorization': 'JWT ' + refreshToken}
+        })
+            .done(function(result) {
+              fn(null, result);
+            })
+            .fail(function(jqXHR, textStatus, err) {
+              fn(err);
+            });
+      },
+
+      // Get new refresh & access tokens
+      createRefresh: function (refreshToken, fn) {
+        $.ajax({
+          url: url + '/exchange',
+          type: 'GET',
+          headers: {'Authorization': 'JWT ' + refreshToken}
+        })
+            .done(function(result) {
+              fn(null, result);
+            })
+            .fail(function(jqXHR, textStatus, err) {
+              fn(err);
+            });
       }
     };
   };
