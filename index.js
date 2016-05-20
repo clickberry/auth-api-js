@@ -212,7 +212,7 @@
       },
 
       // Get new refresh & access tokens
-      createRefresh: function (refreshToken, fn) {
+      createRefresh: function (exchangeToken, fn) {
         $.ajax({
           url: url + '/exchange',
           type: 'GET',
